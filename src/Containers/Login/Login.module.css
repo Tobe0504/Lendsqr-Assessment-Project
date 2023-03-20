@@ -1,0 +1,12 @@
+.container {
+  height: 100vh;
+  display: flex;
+  align-items: stretch;
+  padding: 0 4.25rem;
+}
+
+.imageSection,
+.formSection {
+  width: 50%;
+  height: 100%;
+}

@@ -1,7 +1,12 @@
 import { Routes, Route } from "react-router-dom";
+import Login from "./Containers/Login/Login";
 
-function App() {
-  return <Routes></Routes>;
-}
+const App: React.FC<any> = () => {
+  return (
+    <Routes>
+      <Route element={<Login />} path="/" />
+    </Routes>
+  );
+};
 
 export default App;
