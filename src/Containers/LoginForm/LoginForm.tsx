@@ -7,6 +7,7 @@ import {
   AuthUserContext,
 } from "../../Context/AuthUserContext";
 import classes from "./LoginForm.module.css";
+import lendsqrLogo from "../../Assets/Images/lendsqrLogo.svg";
 
 const LoginForm = () => {
   // Context
@@ -76,6 +77,9 @@ const LoginForm = () => {
 
   return (
     <section className={classes.container}>
+      <div className={classes.mobileLogoContainer}>
+        <img src={lendsqrLogo} alt="lendsqr logo" />
+      </div>
       <div className={classes.header}>
         <h4>Welcome!</h4>
         <p>Enter details to login.</p>
@@ -139,7 +143,6 @@ const LoginForm = () => {
         >
           LOG IN
         </Button>
-        {/* Submit Button */}
       </div>
     </section>
   );
