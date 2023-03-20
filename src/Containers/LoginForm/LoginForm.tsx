@@ -1,21 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "../../Components/Button/Button";
 import Input from "../../Components/Input/Input";
+import {
+  AuthContextValue,
+  AuthUserContext,
+} from "../../Context/AuthUserContext";
 import classes from "./LoginForm.module.css";
 
 const LoginForm = () => {
-  // Types
-  type UserType = {
-    email: string;
-    password: string;
-  };
+  // Context
+  const { setUser, user } = useContext(AuthUserContext) as AuthContextValue;
+
+  // Navigation
+  const navigate = useNavigate();
 
   // States
   const [email, setEmail] = useState<string>("");
   const [emailIsValid, setEmailIsValid] = useState<boolean>(true);
   const [password, setPassword] = useState<string>("");
   const [passwordIsValid, setPasswordIsValid] = useState<boolean>(true);
-  const [user, setUser] = useState<UserType | null>();
   const [buttonIsValid, setButtonIsValid] = useState(
     emailIsValid && passwordIsValid
   );
@@ -43,17 +47,16 @@ const LoginForm = () => {
     }
   };
 
-  const loginButtonClickHandler = () => {
+  const loginButtonClickHandler = (
+    event: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    event.preventDefault();
     setUser({
       email,
       password,
     });
-
-    if (localStorage.getItem("user")) {
-      console.log("Im available");
-    } else {
-      return;
-    }
+    localStorage.setItem("user", JSON.stringify(user));
+    navigate("/dashboard");
   };
 
   const displayPasswordHandler = () => {
@@ -128,7 +131,12 @@ const LoginForm = () => {
         <div className={classes.forgotPassword}>FORGOT PASSWORD?</div>
 
         {/* Button */}
-        <Button onClick={loginButtonClickHandler} disabled={!buttonIsValid}>
+        <Button
+          onClick={(event) => {
+            loginButtonClickHandler(event);
+          }}
+          disabled={!buttonIsValid}
+        >
           LOG IN
         </Button>
         {/* Submit Button */}

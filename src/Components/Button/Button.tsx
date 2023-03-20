@@ -5,7 +5,7 @@ type ButtonProps = {
   children: string;
   invalid?: boolean;
   isSendingRequest?: boolean;
-  onClick: () => void;
+  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
   disabled?: boolean;
 };
 
@@ -25,7 +25,7 @@ const Button = ({
           : `${classes.button}`
       }
       onClick={onClick}
-      type="submit"
+      // type="button"
     >
       {children}
     </button>

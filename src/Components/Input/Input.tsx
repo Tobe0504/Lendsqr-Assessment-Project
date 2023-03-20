@@ -21,7 +21,6 @@ const Input = ({
   value,
   onBlur,
   children,
-  htmlFor,
   id,
 }: InputProps) => {
   return (
@@ -35,9 +34,9 @@ const Input = ({
         }
         value={value}
         onBlur={onBlur}
-        id="email"
+        id={id}
       />
-      <label className={classes.inputLabel} htmlFor="email">
+      <label className={classes.inputLabel} htmlFor={id}>
         {children}
       </label>
     </div>
