@@ -3,7 +3,7 @@ import SideNav from "../../Containers/SideNav/SideNav";
 import classes from "./Layout.module.css";
 
 type LayoutProps = {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 };
 
 const Layout = ({ children }: LayoutProps) => {
@@ -16,7 +16,9 @@ const Layout = ({ children }: LayoutProps) => {
         <div className={classes.sideNav}>
           <SideNav />
         </div>
-        <div className={classes.body}>{children}</div>
+        <div className={classes.body}>
+          {children ? children : <>Nothing to see here</>}
+        </div>
       </div>
     </section>
   );

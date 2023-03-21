@@ -3,7 +3,11 @@ import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import switchOrganization from "../../Assets/Icons/switchOrganization.svg";
 import home from "../../Assets/Icons/home.svg";
-import { customerNavItems } from "../../Utilities/NavItems";
+import {
+  businessesNavItems,
+  customerNavItems,
+  settingsNavItems,
+} from "../../Utilities/NavItems";
 import SideNavListContainer from "../../Components/SideNavListContainer/SideNavListContainer";
 
 const SideNav = () => {
@@ -30,6 +34,20 @@ const SideNav = () => {
         <SideNavListContainer
           navListstArray={customerNavItems}
           header="CUSTOMERS"
+        />
+      </div>
+
+      <div className={classes.navListContainer}>
+        <SideNavListContainer
+          navListstArray={businessesNavItems}
+          header="BUSINESSES"
+        />
+      </div>
+
+      <div className={classes.navListContainer}>
+        <SideNavListContainer
+          navListstArray={settingsNavItems}
+          header="SETTINGS"
         />
       </div>
     </section>

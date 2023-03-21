@@ -1,7 +1,7 @@
 import Layout from "../../Components/Layout/Layout";
-import classes from "./Dashboard.module.css";
+import classes from "./UsersDashboard.module.css";
 
-const Dashboard = () => {
+const UsersDashboard = () => {
   return (
     <Layout>
       <section className={classes.container}></section>
@@ -9,4 +9,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default UsersDashboard;

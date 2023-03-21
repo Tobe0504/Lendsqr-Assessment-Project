@@ -6,11 +6,16 @@
 .sideNav {
   height: calc(100vh - 100px);
   width: 283px;
-  border: 2px solid red;
   background: #ffffff;
   box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04);
+  overflow-y: auto;
 }
 
-.body {
-  background: #e5e5e5;
+.sideNav::-webkit-scrollbar {
+  display: none;
+}
+
+.sideNav {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }

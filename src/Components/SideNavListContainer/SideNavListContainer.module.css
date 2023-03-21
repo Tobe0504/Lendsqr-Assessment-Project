@@ -23,6 +23,12 @@
   position: relative;
   margin: 0.5rem 0;
   opacity: 0.7;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.navListItem:hover {
+  background: #f3fcfc;
 }
 
 .activeNav {

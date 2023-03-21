@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
+import Layout from "./Components/Layout/Layout";
 import RequireAuth from "./Components/RequireAuth/RequireAuth";
-import Dashboard from "./Containers/Dashboard/Dashboard";
+import UsersDashboard from "./Containers/UsersDashboard/UsersDashboard";
 import Login from "./Containers/Login/Login";
 
 const App: React.FC<any> = () => {
@@ -11,10 +12,19 @@ const App: React.FC<any> = () => {
       <Route
         element={
           <RequireAuth>
-            <Dashboard />
+            <UsersDashboard />
           </RequireAuth>
         }
         path="/dashboard/users"
+      />
+
+      <Route
+        element={
+          <RequireAuth>
+            <Layout></Layout>
+          </RequireAuth>
+        }
+        path="*"
       />
     </Routes>
   );
