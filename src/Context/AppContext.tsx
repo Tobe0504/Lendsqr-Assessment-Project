@@ -12,6 +12,10 @@ export type AppContextValues = {
   getUsers: () => void;
   users: User[] | any[];
   setUsers: React.Dispatch<React.SetStateAction<any[] | User[]>>;
+  isSendingRequest: boolean;
+  activeUsers: User[] | any[];
+  usersWithLoans: User[] | any[];
+  usersWithSavings: User[] | any[];
 };
 
 export type User = {
@@ -52,6 +56,8 @@ export type User = {
       twitter: string;
     };
     userName: string;
+    isActive: boolean;
+    status: string;
   };
   setUser: React.Dispatch<React.SetStateAction<any[] | User[]>>;
 };
@@ -62,11 +68,13 @@ const AppContextProvider = ({ children }: AppContextProps) => {
   // State
   const [searchValue, setSearchValue] = useState<string>("");
   const [users, setUsers] = useState<User[] | any[]>([]);
+  const [isSendingRequest, setIsSendingRequest] = useState<boolean>(false);
 
   // Utilities
 
   // Fetch Users
   const getUsers = () => {
+    setIsSendingRequest(true);
     axios
       .get("https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users")
       .then((res) => {
@@ -75,9 +83,11 @@ const AppContextProvider = ({ children }: AppContextProps) => {
           return { ...user, isActive: false, status: "Active" };
         });
         setUsers(modifiedData);
+        setIsSendingRequest(false);
       })
       .catch((err) => {
         console.log(err, "Users");
+        setIsSendingRequest(false);
       });
   };
 
@@ -85,9 +95,31 @@ const AppContextProvider = ({ children }: AppContextProps) => {
     getUsers();
   }, []);
 
+  const activeUsers = users.filter((user) => {
+    return user.status === "Active";
+  });
+
+  const usersWithLoans = users.filter((user) => {
+    return Number(user.education.loanRepayment) > 0;
+  });
+
+  const usersWithSavings = users.filter((user) => {
+    return Number(user.accountBalance) > 0;
+  });
+
   return (
     <AppContext.Provider
-      value={{ searchValue, setSearchValue, getUsers, users, setUsers }}
+      value={{
+        searchValue,
+        setSearchValue,
+        getUsers,
+        users,
+        setUsers,
+        isSendingRequest,
+        activeUsers,
+        usersWithLoans,
+        usersWithSavings,
+      }}
     >
       {children}
     </AppContext.Provider>
