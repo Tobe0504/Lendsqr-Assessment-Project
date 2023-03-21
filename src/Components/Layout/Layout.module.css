@@ -1,0 +1,16 @@
+.header {
+  height: 100px;
+  box-shadow: 3px 0px 20px rgba(0, 0, 0, 0.04);
+}
+
+.sideNav {
+  height: calc(100vh - 100px);
+  width: 283px;
+  border: 2px solid red;
+  background: #ffffff;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04);
+}
+
+.body {
+  background: #e5e5e5;
+}

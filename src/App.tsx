@@ -14,7 +14,7 @@ const App: React.FC<any> = () => {
             <Dashboard />
           </RequireAuth>
         }
-        path="/dashboard"
+        path="/dashboard/users"
       />
     </Routes>
   );

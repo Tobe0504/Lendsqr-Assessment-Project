@@ -57,7 +57,7 @@ const LoginForm = () => {
       password,
     });
     localStorage.setItem("user", JSON.stringify(user));
-    navigate("/dashboard");
+    navigate("/dashboard/users");
   };
 
   const displayPasswordHandler = () => {
