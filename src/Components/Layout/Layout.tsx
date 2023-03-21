@@ -12,13 +12,11 @@ const Layout = ({ children }: LayoutProps) => {
       <div className={classes.header}>
         <Header />
       </div>
-      <div className={classes.body}>
+      <div className={classes.bodyContainer}>
         <div className={classes.sideNav}>
           <SideNav />
         </div>
-        <div className={classes.body}>
-          {children ? children : <>Nothing to see here</>}
-        </div>
+        <div className={classes.body}>{children}</div>
       </div>
     </section>
   );

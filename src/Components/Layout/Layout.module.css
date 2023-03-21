@@ -19,3 +19,35 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+.bodyContainer {
+  display: flex;
+  align-items: flex-start;
+}
+
+.body {
+  padding: 4rem;
+  width: calc(100% - 283px);
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+  .sideNav {
+    display: none;
+  }
+
+  .body {
+    width: 100%;
+    padding: 3rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .sideNav {
+    display: none;
+  }
+
+  .body {
+    width: 100%;
+    padding: 2rem;
+  }
+}
