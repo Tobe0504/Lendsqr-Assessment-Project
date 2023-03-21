@@ -16,6 +16,9 @@ export type AppContextValues = {
   activeUsers: User[] | any[];
   usersWithLoans: User[] | any[];
   usersWithSavings: User[] | any[];
+  selectedOrganization: string;
+  setSelectedOrganization: React.Dispatch<React.SetStateAction<string>>;
+  organizationsArray: string[];
 };
 
 export type User = {
@@ -69,6 +72,7 @@ const AppContextProvider = ({ children }: AppContextProps) => {
   const [searchValue, setSearchValue] = useState<string>("");
   const [users, setUsers] = useState<User[] | any[]>([]);
   const [isSendingRequest, setIsSendingRequest] = useState<boolean>(false);
+  const [selectedOrganization, setSelectedOrganization] = useState<string>("");
 
   // Utilities
 
@@ -107,6 +111,12 @@ const AppContextProvider = ({ children }: AppContextProps) => {
     return Number(user.accountBalance) > 0;
   });
 
+  const organizationsArray = users.map((user) => {
+    return user.orgName;
+  });
+
+  console.log(organizationsArray);
+
   return (
     <AppContext.Provider
       value={{
@@ -119,6 +129,9 @@ const AppContextProvider = ({ children }: AppContextProps) => {
         activeUsers,
         usersWithLoans,
         usersWithSavings,
+        setSelectedOrganization,
+        selectedOrganization,
+        organizationsArray,
       }}
     >
       {children}

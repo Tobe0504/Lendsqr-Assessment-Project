@@ -12,6 +12,7 @@ import { useContext, useEffect, useRef } from "react";
 import { AppContext, AppContextValues } from "../../Context/AppContext";
 import { activeToggler } from "../../HelperFunctions/ActiveToggler";
 import { CircularProgress } from "@mui/material";
+import UserDashboardTableFilter from "../UserDashboardTableFilter/UserDashboardTableFilter";
 
 const UserDashboardTable = () => {
   // Context
@@ -196,6 +197,8 @@ const UserDashboardTable = () => {
             )}
           </div>
         </div>
+
+        <UserDashboardTableFilter />
       </Card>
     </div>
   );
