@@ -1,0 +1,108 @@
+.container {
+  padding: 30px;
+}
+
+.userDashBoardTableBodyItemOuter {
+  position: relative;
+}
+
+.userDashboardTableHeader {
+  display: flex;
+  align-items: center;
+}
+
+.userDashboardTableHeaderItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 1.5rem 0;
+  width: calc(100% / 6);
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 14px;
+  text-transform: uppercase;
+  color: #545f7d;
+}
+
+.userDashboardTableBodyItem {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(33, 63, 125, 0.1);
+}
+
+.userDashboardTableBodyItem > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: calc(100% / 6);
+  padding: 1.5rem 0;
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #545f7d;
+}
+
+.userDashboardTableBodyItem > div:last-child {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.userDashboardTableBodyItem > div:last-child > span:nth-child(1) {
+  padding: 7px 13px;
+  border-radius: 100px;
+}
+
+.userDashboardTableBodyItem > div:last-child > span:nth-child(2) {
+  color: #545f7d;
+  font-size: 1.2rem;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+}
+
+.userDashboardTableBodyItem > div:last-child > span:nth-child(2):hover {
+  background-color: var(--hoverBackgroundColor);
+}
+
+.userPopUpMenu {
+  height: 130px;
+  width: 180px;
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  color: #545f7d;
+  position: absolute;
+  right: -50px;
+  top: 100%;
+  background: #ffffff;
+  z-index: 1;
+  border: 1px solid rgba(84, 95, 125, 0.04);
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
+  padding: 13px 0;
+}
+
+.userPopUpMenu > div {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.userPopUpMenu > div:hover {
+  background-color: var(--hoverBackgroundColor);
+}
